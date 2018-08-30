@@ -125,7 +125,7 @@ using ExitGames.Client.Photon;
                 roomOptions = new RoomOptions();
             }
 
-            Hashtable gameProperties = new Hashtable();
+            ExitGames.Client.Photon.Hashtable gameProperties = new ExitGames.Client.Photon.Hashtable();
             gameProperties[GamePropertyKey.IsOpen] = roomOptions.IsOpen;
             gameProperties[GamePropertyKey.IsVisible] = roomOptions.IsVisible;
             gameProperties[GamePropertyKey.PropsListedInLobby] = (roomOptions.CustomRoomPropertiesForLobby == null) ? new string[0] : roomOptions.CustomRoomPropertiesForLobby;
@@ -306,7 +306,7 @@ using ExitGames.Client.Photon;
                 this.Listener.DebugReturn(DebugLevel.INFO, "OpJoinRandomRoom()");
             }
 
-            Hashtable expectedRoomProperties = new Hashtable();
+            ExitGames.Client.Photon.Hashtable expectedRoomProperties = new ExitGames.Client.Photon.Hashtable();
             expectedRoomProperties.MergeStringKeys(opJoinRandomRoomParams.ExpectedCustomRoomProperties);
             if (opJoinRandomRoomParams.ExpectedMaxPlayers > 0)
             {
@@ -428,7 +428,7 @@ using ExitGames.Client.Photon;
             return this.OpCustom(OperationCode.FindFriends, opParameters, true);
         }
 
-        public bool OpSetCustomPropertiesOfActor(int actorNr, Hashtable actorProperties)
+        public bool OpSetCustomPropertiesOfActor(int actorNr, ExitGames.Client.Photon.Hashtable actorProperties)
         {
             return this.OpSetPropertiesOfActor(actorNr, actorProperties.StripToStringKeys(), null);
         }
@@ -442,7 +442,7 @@ using ExitGames.Client.Photon;
         /// <param name="expectedProperties">If set, these must be in the current properties-set (on the server) to set actorProperties: CAS.</param>
         /// <param name="webForward">Set to true, to forward the set properties to a WebHook, defined for this app (in Dashboard).</param>
         /// <returns>If the operation could be sent (requires connection).</returns>
-        protected internal bool OpSetPropertiesOfActor(int actorNr, Hashtable actorProperties, Hashtable expectedProperties = null, bool webForward = false)
+        protected internal bool OpSetPropertiesOfActor(int actorNr, ExitGames.Client.Photon.Hashtable actorProperties, ExitGames.Client.Photon.Hashtable expectedProperties = null, bool webForward = false)
         {
             if (this.DebugOut >= DebugLevel.INFO)
             {
@@ -478,12 +478,12 @@ using ExitGames.Client.Photon;
 
         protected void OpSetPropertyOfRoom(byte propCode, object value)
         {
-            Hashtable properties = new Hashtable();
+            ExitGames.Client.Photon.Hashtable properties = new ExitGames.Client.Photon.Hashtable();
             properties[propCode] = value;
             this.OpSetPropertiesOfRoom(properties, expectedProperties: null, webForward: false);
         }
 
-        public bool OpSetCustomPropertiesOfRoom(Hashtable gameProperties, bool broadcast, byte channelId)
+        public bool OpSetCustomPropertiesOfRoom(ExitGames.Client.Photon.Hashtable gameProperties, bool broadcast, byte channelId)
         {
             return this.OpSetPropertiesOfRoom(gameProperties.StripToStringKeys(), expectedProperties: null, webForward: false);
         }
@@ -496,7 +496,7 @@ using ExitGames.Client.Photon;
         /// <param name="expectedProperties">The properties expected when update occurs. (CAS : "Check And Swap")</param>
         /// <param name="webForward">"WebFlag" to indicate if request should be forwarded as "PathProperties" webhook or not.</param>
         /// <returns>If the operation could be sent (has to be connected).</returns>
-        protected internal bool OpSetPropertiesOfRoom(Hashtable gameProperties, Hashtable expectedProperties = null, bool webForward = false)
+        protected internal bool OpSetPropertiesOfRoom(ExitGames.Client.Photon.Hashtable gameProperties, ExitGames.Client.Photon.Hashtable expectedProperties = null, bool webForward = false)
         {
             if (this.DebugOut >= DebugLevel.INFO)
             {
@@ -811,7 +811,7 @@ using ExitGames.Client.Photon;
 
     internal class OpJoinRandomRoomParams
     {
-        public Hashtable ExpectedCustomRoomProperties;
+        public ExitGames.Client.Photon.Hashtable ExpectedCustomRoomProperties;
         public byte ExpectedMaxPlayers;
         public MatchmakingMode MatchingType;
         public TypedLobby TypedLobby;
@@ -824,7 +824,7 @@ using ExitGames.Client.Photon;
         public string RoomName;
         public RoomOptions RoomOptions;
         public TypedLobby Lobby;
-        public Hashtable PlayerProperties;
+        public ExitGames.Client.Photon.Hashtable PlayerProperties;
         public bool OnGameServer = true; // defaults to true! better send more parameter than too few (GS needs all)
         public bool CreateIfNotExists;
         public bool RejoinOnly;
@@ -1577,7 +1577,7 @@ using ExitGames.Client.Photon;
         /// The shorter your keys are, the better.
         /// Example: Map, Mode (could be "m" when used with "Map"), TileSet (could be "t").
         /// </remarks>
-        public Hashtable CustomRoomProperties;
+        public ExitGames.Client.Photon.Hashtable CustomRoomProperties;
 
         /// <summary>Defines the custom room properties that get listed in the lobby.</summary>
         /// <remarks>
@@ -1643,7 +1643,7 @@ using ExitGames.Client.Photon;
     [Obsolete("Use property with uppercase naming instead.")]
     public bool cleanupCacheOnLeave { get { return this.cleanupCacheOnLeaveField; } set { this.cleanupCacheOnLeaveField = value; } }
     [Obsolete("Use property with uppercase naming instead.")]
-    public Hashtable customRoomProperties { get { return this.CustomRoomProperties; } set { this.CustomRoomProperties = value; } }
+    public ExitGames.Client.Photon.Hashtable customRoomProperties { get { return this.CustomRoomProperties; } set { this.CustomRoomProperties = value; } }
     [Obsolete("Use property with uppercase naming instead.")]
     public string[] customRoomPropertiesForLobby { get { return this.CustomRoomPropertiesForLobby; } set { this.CustomRoomPropertiesForLobby = value; } }
     [Obsolete("Use property with uppercase naming instead.")]
