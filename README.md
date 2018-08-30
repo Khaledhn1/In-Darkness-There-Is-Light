@@ -1,6 +1,6 @@
 # DESCRIPTION
 
-In Darkness There Is Light is a FPS that I have been working on for a while the game is still a prototype and we don't really have an aim for it yet hopefully soon after seeing the community's opinion on the game we will decide if we will continue development or not now there isn't much else to say about the game for now as it is in very early development and it isn't ready for release yet hopefully it will be soon as much as an alpha game can be so hopefully you like it and we will be awaiting your response
+In Darkness There Is Light is a FPS that I have been working on for a while the game is still a prototype and I don't really have an aim for it yet hopefully soon after seeing the community's opinion on the game I will decide if I will continue development or not now there isn't much else to say about the game for now as it is in very early development and it isn't ready for release yet hopefully it will be soon as much as an alpha game can be so hopefully you like it and I will be awaiting your response
 
 # About Me:
 
